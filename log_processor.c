@@ -11,10 +11,5 @@ LogEntry *process_log_entry(const char *log_line) {
          entry->timestamp, entry->request_method, entry->request_url,
          &entry->response_code);
 
-  printf("Processed Log Entry: IP: %s Timestamp: %s Method: %s URL: %s "
-         "Response Code: %d\n",
-         entry->ip_address, entry->timestamp, entry->request_method,
-         entry->request_url, entry->response_code);
-
   return entry;
 }

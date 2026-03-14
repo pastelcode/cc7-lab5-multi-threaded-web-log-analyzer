@@ -14,8 +14,8 @@ void initializeHashMap(hashMap *mp) {
   mp->capacity = 100;
   mp->numOfElements = 0;
 
-  // array of size = 1
-  mp->arr = (node **)malloc(sizeof(node *) * mp->capacity);
+  // Allocate and zero-initialize so all bucket pointers start as NULL
+  mp->arr = (node **)calloc(mp->capacity, sizeof(node *));
   return;
 }
 
@@ -126,7 +126,5 @@ char *search(hashMap *mp, char *key) {
 
   // If no key found in the hashMap
   // equal to the given key
-  char *errorMssg = (char *)malloc(sizeof(char) * 25);
-  errorMssg = "Oops! No data found.\n";
-  return errorMssg;
+  return "Oops! No data found.\n";
 }
